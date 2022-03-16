@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>List of Employees</h1>
+	<table border = "1">
+		<tr>
+			<th>Name</th>
+			<th>Gender</th>
+			<th>Department</th>
+			<th>Date of Birth</th>
+			<th>Actions</th>
+		</tr>
+			<tr th:each="e : ${list}">
+				<td th:text="${e.name}"></td>
+				<td th:text="${e.gender}"></td>
+				<td th:text="${e.department}"></td>
+				<td th:text="${e.dob}"></td>
+				<td>
+					<a th:href="@{'/employee/' + ${e.id}}">Edit</a>
+					|
+					<a th:href="@{'/delete/' + ${e.id}}">Delete</a>
+				</td>
+			</tr>
+		</c:forEach>
+	</table>
+	<button th:onclick="'window.location.href=\'' + @{/openEmployeeView/} +'\''">Add Employee</button>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Add Employee</h1>
+	<form th:action = "@{'/save'}">
+		Enter Name: <input name="name" th:value="${employee.name}"><br/>
+		Select Gender: <input type="radio" name="gender" value = "Male"/>Male&nbsp;
+					<input type="radio" name="gender" value = "Female"/>Female&nbsp;<br/>
+		Departement:
+		<select name="department">
+			<option value="Support">Support</option>
+			<option value="Testing">Testing</option>
+			<option value="Development">Development</option>
+			<option value="Business Analyst">Business Analyst</option>
+		</select><br/>
+		Date of Birth: <input name="dob" type = "date"/><br/>
+		<input name="id" th:value="${employee.id}"/>
+		<button type = "submit">Save</button>
+	</form>
+</body>
+</html>
